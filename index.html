@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvera by Ash | Pure Beauty</title>
+    <meta name="description" content="Alvera by Ash - Premium organic skincare and wellness for your daily ritual.">
+    <!-- Google Fonts: Playfair Display (Serif) & Lato (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <nav class="nav-left">
+                <a href="#products" class="nav-link">Shop</a>
+                <a href="#about" class="nav-link">Our Story</a>
+            </nav>
+
+            <a href="#" class="logo">
+                Alvera <span class="logo-accent">by Ash</span>
+            </a>
+
+            <nav class="nav-right">
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="cart-btn" class="nav-link cart-btn">
+                    Cart (<span id="cart-count">0</span>)
+                </button>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Your bag is currently empty.</p>
+            <!-- Items will be injected here via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-primary full-width">Checkout</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <main>
+        <!-- Hero Section: Editorial Style -->
+        <section id="hero" class="hero">
+            <div class="hero-image-wrapper fade-in">
+                <!-- Using a high-quality aesthetic placeholder -->
+                <img src="https://images.unsplash.com/photo-1616686693527-3806fb76985a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                    alt="Alvera Skincare" class="hero-img">
+            </div>
+            <div class="hero-content fade-in delay-200">
+                <span class="hero-tag">New Collection</span>
+                <h1 class="hero-title">Hydrate & <br><i>Glow</i></h1>
+                <p class="hero-subtitle">Experience the art of natural beauty. Formulated with organic botanical
+                    extracts for your skin's daily renewal.</p>
+                <a href="#products" class="btn btn-primary">Discover the Ritual</a>
+            </div>
+            <div class="editorial-image fade-in delay-200">
+                <img src="images/image4.jpg" alt="Natural Ingredients">
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section fade-in">
+            <div class="container values-grid">
+                <div class="value-item">
+                    <span class="value-icon">✦</span>
+                    <h3>100% Organic</h3>
+                    <p>Sourced from nature's finest roots.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">✦</span>
+                    <h3>Cruelty Free</h3>
+                    <p>Ethical beauty, never tested on animals.</p>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">✦</span>
+                    <h3>Clinically Proven</h3>
+                    <p>Results you can see and feel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section id="products" class="section products">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 class="section-title">The Essentials</h2>
+                    <p class="section-subtitle">Curated for maximum radiance.</p>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card fade-in delay-100">
+                        <div class="product-image-container">
+                            <span class="badge">Best Seller</span>
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Silk Face Cream" class="product-img">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Silk Face Cream</h3>
+                            <p class="product-category">Moisturizer</p>
+                            <div class="price-row">
+                                <span class="price" data-price="20.00">$20.00</span>
+                                <button class="btn-text buy-btn" data-product="Silk Face Cream" data-price="20.00"
+                                    data-img="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card fade-in delay-200">
+                        <div class="product-image-container">
+                            <img src="images/image1.jpg" alt="Golden Serum" class="product-img">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Golden Glow Serum</h3>
+                            <p class="product-category">Treatment</p>
+                            <div class="price-row">
+                                <span class="price" data-price="15.00">$15.00</span>
+                                <button class="btn-text buy-btn" data-product="Golden Glow Serum" data-price="15.00"
+                                    data-img="images/image1.jpg">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card fade-in delay-300">
+                        <div class="product-image-container">
+                            <img src="images/image2.png" alt="Clay Mask" class="product-img">
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Purifying Clay Mask</h3>
+                            <p class="product-category">Cleanser</p>
+                            <div class="price-row">
+                                <span class="price" data-price="30.00">$30.00</span>
+                                <button class="btn-text buy-btn" data-product="Purifying Clay Mask" data-price="30.00"
+                                    data-img="images/image2.png">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial / About -->
+        <section id="about" class="section editorial-split">
+            <div class="editorial-content fade-in">
+                <h2 class="section-title">Embrace Your <br><i>Natural Beauty</i></h2>
+                <p>Alvera by Ash began with a simple philosophy: skincare should be a ritual, not a chore. We blend
+                    ancient botanical wisdom with modern dermatology to create products that nourish not just your skin,
+                    but your soul.</p>
+                <a href="#about" class="btn btn-outline">Read Our Story</a>
+            </div>
+            <div class="editorial-image fade-in delay-200">
+                <img src="images/image3.png" alt="Natural Ingredients">
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section id="contact" class="section newsletter">
+            <div class="container text-center fade-in">
+                <h2 class="section-title small">Join the List</h2>
+                <p class="section-subtitle">Unlock 10% off your first order.</p>
+                <form class="newsletter-form contact-form">
+                    <input type="email" id="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-layout">
+            <div class="footer-col">
+                <h3>Alvera</h3>
+                <p>Cairo • Dubai</p>
+            </div>
+            <div class="footer-col">
+                <a href="#products">Shop</a>
+                <a href="#about">About</a>
+                <a href="#hero">Journal</a>
+            </div>
+            <div class="footer-col">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Alvera by Ash. Designed with elegance.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
