@@ -1,6 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-const discountPercent = 25;
-const discountEndDate = new Date("2026-03-6");
+document.addEventListener('DOMContentLoaded', () => {
+
+    const discountPercent = 25;
+    const discountEndDate = new Date("2026-03-06");
+
+    const cartTotalElement = document.getElementById("cart-total-price");
+    const discountBox = document.getElementById("discount-box");
+
+    function updateCart() {
+
+        let subtotal = 0;
+
+        cart.forEach((item) => {
+            subtotal += parseFloat(item.price);
+        });
+
+        let total = subtotal;
+
+        if (new Date() <= discountEndDate && subtotal > 0) {
+
+            const discountAmount = subtotal * discountPercent / 100;
+            total = subtotal - discountAmount;
+
+            discountBox.innerHTML = `
+                <div style="color:#d63384; font-weight:bold;">
+                    🎉 Grand Opening Offer (${discountPercent}% OFF)
+                </div>
+                <div style="text-decoration: line-through; color: gray;">
+                    ${subtotal.toFixed(2)} EGP
+                </div>
+                <div style="color: green; font-size:18px; font-weight:bold;">
+                    You Save ${discountAmount.toFixed(2)} EGP
+                </div>
+            `;
+
+        } else {
+            discountBox.innerHTML = "";
+        }
+
+        cartTotalElement.textContent = total.toFixed(2) + " EGP";
+    }
+
+});
     // --- CART STATE ---
     let cart = [];
     const cartDrawer = document.getElementById('cart-drawer');
@@ -157,6 +198,7 @@ const discountEndDate = new Date("2026-03-6");
         });
     }
 });
+
 
 
 
