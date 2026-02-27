@@ -1,5 +1,16 @@
 let cart = [];
 const discountPercent = 25;
+document.querySelectorAll('.price').forEach(priceEl => {
+
+    const originalPrice = parseFloat(priceEl.getAttribute('data-price'));
+    const discountAmount = originalPrice * discountPercent / 100;
+    const finalPrice = originalPrice - discountAmount;
+
+    priceEl.innerHTML = `
+        <span class="old-price">${originalPrice} EGP</span>
+        <span class="new-price">${finalPrice.toFixed(2)} EGP</span>
+    `;
+});
 const discountEndDate = new Date("2026-03-06");
 const discountBox = document.getElementById("discount-box");
 console.log(discountBox);
@@ -189,4 +200,5 @@ if (checkoutBtn) {
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
     });
 }
+
 
