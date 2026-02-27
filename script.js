@@ -3,41 +3,6 @@ const discountPercent = 25;
 const discountEndDate = new Date("2026-03-06");
 const discountBox = document.getElementById("discount-box");
 
-        let subtotal = 0;
-
-        cart.forEach((item) => {
-            subtotal += parseFloat(item.price);
-        });
-
-        let total = subtotal;
-
-        if (new Date() <= discountEndDate && subtotal > 0) {
-
-            const discountAmount = subtotal * discountPercent / 100;
-            total = subtotal - discountAmount;
-
-            discountBox.innerHTML = `
-                <div style="color:#d63384; font-weight:bold;">
-                    🎉 Grand Opening Offer (${discountPercent}% OFF)
-                </div>
-                <div style="text-decoration: line-through; color: gray;">
-                    ${subtotal.toFixed(2)} EGP
-                </div>
-                <div style="color: green; font-size:18px; font-weight:bold;">
-                    You Save ${discountAmount.toFixed(2)} EGP
-                </div>
-            `;
-
-        } else {
-            discountBox.innerHTML = "";
-        }
-
-        cartTotalElement.textContent = total.toFixed(2) + " EGP";
-    }
-
-});
-    // --- CART STATE ---
-    let cart = [];
     const cartDrawer = document.getElementById('cart-drawer');
     const cartOverlay = document.getElementById('cart-overlay');
     const cartItemsContainer = document.getElementById('cart-items');
@@ -136,13 +101,13 @@ if (new Date() <= discountEndDate && subtotal > 0) {
 
     discountBox.innerHTML = `
         <div style="color:#d63384; font-weight:bold;">
-            🎉 Grand Opening Offer (${discountPercent}% OFF)
+            🎉 Grand Opening Offer (EGP{discountPercent}% OFF)
         </div>
         <div style="text-decoration: line-through; color: gray;">
-            ${subtotal.toFixed(2)} EGP
+            EGP{subtotal.toFixed(2)} EGP
         </div>
         <div style="color: green; font-size:18px; font-weight:bold;">
-            You Save ${discountAmount.toFixed(2)} EGP
+            You Save EGP{discountAmount.toFixed(2)} EGP
         </div>
     `;
 } else {
@@ -214,6 +179,7 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
         });
     }
 });
+
 
 
 
