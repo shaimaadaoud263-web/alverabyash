@@ -693,4 +693,17 @@ input[type="email"]:focus {
         flex-direction: column;
         align-items: center;
     }
+    .old-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #d63384;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 }
