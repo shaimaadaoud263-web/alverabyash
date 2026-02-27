@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${item.img}" alt="${item.name}">
                     <div class="cart-item-info">
                         <h4>${item.name}</h4>
-                        <span class="cart-item-price">$${item.price}</span>
+                        <span class="cart-item-price">${item.price}EGP</span>
                     </div>
                 `;
                 cartItemsContainer.appendChild(itemEl);
@@ -156,4 +156,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
