@@ -2,7 +2,7 @@ let cart = [];
 const discountPercent = 25;
 const discountEndDate = new Date("2026-03-06");
 const discountBox = document.getElementById("discount-box");
-
+console.log(discountBox);
     const cartDrawer = document.getElementById('cart-drawer');
     const cartOverlay = document.getElementById('cart-overlay');
     const cartItemsContainer = document.getElementById('cart-items');
@@ -178,6 +178,7 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
             }, 1000);
         });
     }
+
 
 
 
