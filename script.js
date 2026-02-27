@@ -159,33 +159,34 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
 
     // Checkout Functionality
     const checkoutBtn = document.querySelector('.cart-footer .btn-primary');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert("Your bag is empty.");
-                return;
-            }
 
-            const originalText = checkoutBtn.innerText;
-            checkoutBtn.innerText = "Processing...";
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
 
-            setTimeout(() => {
-                alert("Thank you for your order! This is a demo transaction.");
-                cart = [];
-                updateCartUI();
-                closeCart();
-                checkoutBtn.innerText = originalText;
-            }, 1000);
+        if (cart.length === 0) {
+            alert("Your bag is empty.");
+            return;
+        }
+
+        let message = "Hi, I would like to order:%0A%0A";
+        let total = 0;
+
+        cart.forEach((item) => {
+            message += `- ${item.name} (${item.price} EGP)%0A`;
+            total += parseFloat(item.price);
         });
-    }
 
+        // حساب الخصم لو شغال
+        if (new Date() <= discountEndDate && total > 0) {
+            const discountAmount = total * discountPercent / 100;
+            total = total - discountAmount;
+        }
 
+        message += `%0ATotal: ${total.toFixed(2)} EGP`;
 
+        const phoneNumber = "201103160518";
 
-
-
-
-
-
-
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    });
+}
 
