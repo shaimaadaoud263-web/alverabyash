@@ -198,7 +198,20 @@ if (checkoutBtn) {
         const phoneNumber = "201103160518";
 
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+        // عرض السعر قبل وبعد الخصم في المنتجات
+document.querySelectorAll('.price').forEach(priceEl => {
+
+    const originalPrice = parseFloat(priceEl.getAttribute('data-price'));
+    const discountAmount = originalPrice * discountPercent / 100;
+    const finalPrice = originalPrice - discountAmount;
+
+    priceEl.innerHTML = `
+        <span class="old-price">${originalPrice} EGP</span>
+        <span class="new-price">${finalPrice.toFixed(2)} EGP</span>
+    `;
+});
     });
 }
+
 
 
