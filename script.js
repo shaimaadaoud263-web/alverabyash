@@ -132,8 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        cartTotalElement.innerText = 'EGP' + total.toFixed(2);
-    }
+        let subtotal = total;
+let finalTotal = subtotal;
+
+if (new Date() <= discountEndDate && subtotal > 0) {
+
+    const discountAmount = subtotal * discountPercent / 100;
+    finalTotal = subtotal - discountAmount;
+
+    discountBox.innerHTML = `
+        <div style="color:#d63384; font-weight:bold;">
+            🎉 Grand Opening Offer (${discountPercent}% OFF)
+        </div>
+        <div style="text-decoration: line-through; color: gray;">
+            ${subtotal.toFixed(2)} EGP
+        </div>
+        <div style="color: green; font-size:18px; font-weight:bold;">
+            You Save ${discountAmount.toFixed(2)} EGP
+        </div>
+    `;
+} else {
+    discountBox.innerHTML = "";
+}
+
+cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
 
     function addToCart(name, price, img) {
         cart.push({ name, price, img });
@@ -198,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
 
