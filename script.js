@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        cartTotalElement.innerText = '$' + total.toFixed(2);
+        cartTotalElement.innerText = 'EGP' + total.toFixed(2);
     }
 
     function addToCart(name, price, img) {
@@ -156,3 +156,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
