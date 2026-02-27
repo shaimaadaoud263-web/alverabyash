@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+const discountPercent = 25;
+const discountEndDate = new Date("2026-03-6");
     // --- CART STATE ---
     let cart = [];
     const cartDrawer = document.getElementById('cart-drawer');
@@ -156,5 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
