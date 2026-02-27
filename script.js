@@ -178,7 +178,7 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
             }, 1000);
         });
     }
-});
+
 
 
 
