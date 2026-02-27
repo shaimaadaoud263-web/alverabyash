@@ -1,13 +1,7 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const discountPercent = 25;
-    const discountEndDate = new Date("2026-03-06");
-
-    const cartTotalElement = document.getElementById("cart-total-price");
-    const discountBox = document.getElementById("discount-box");
-
-    function updateCart() {
+let cart = [];
+const discountPercent = 25;
+const discountEndDate = new Date("2026-03-06");
+const discountBox = document.getElementById("discount-box");
 
         let subtotal = 0;
 
@@ -220,6 +214,7 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
         });
     }
 });
+
 
 
 
