@@ -156,7 +156,7 @@ if (new Date() <= discountEndDate && subtotal > 0) {
 }
 
 cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
-
+}
     function addToCart(name, price, img) {
         cart.push({ name, price, img });
         updateCartUI();
@@ -220,6 +220,7 @@ cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
         });
     }
 });
+
 
 
 
