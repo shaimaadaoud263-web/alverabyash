@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const discountPercent = 25;
@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
 
