@@ -694,10 +694,9 @@ input[type="email"]:focus {
         align-items: center;
     }
     .old-price {
-    text-decoration: line-through;
-    color: gray;
+    text-decoration: line-through !important;
+    color: gray !important;
     margin-right: 6px;
-    font-size: 14px;
 }
 
 .new-price {
@@ -707,3 +706,4 @@ input[type="email"]:focus {
 }
 
 }
+
