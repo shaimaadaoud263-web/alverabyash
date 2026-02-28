@@ -112,13 +112,13 @@ if (new Date() <= discountEndDate && subtotal > 0) {
 
     discountBox.innerHTML = `
         <div style="color:#d63384; font-weight:bold;">
-            🎉 Grand Opening Offer (EGP{25}% OFF)
+            🎉 Grand Opening Offer (${discountpercent}% OFF)
         </div>
         <div style="text-decoration: line-through; color: gray;">
-            EGP{subtotal.toFixed(2)} EGP
+            ${subtotal.toFixed(2)} EGP
         </div>
         <div style="color: green; font-size:18px; font-weight:bold;">
-            You Save EGP{25.toFixed(2)} EGP
+            You Save ${25.toFixed(2)} EGP
         </div>
     `;
 } else {
@@ -212,6 +212,7 @@ document.querySelectorAll('.price').forEach(priceEl => {
 });
     });
 }
+
 
 
 
