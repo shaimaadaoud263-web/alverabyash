@@ -87,18 +87,26 @@ console.log(discountBox);
             cartItemsContainer.innerHTML = '<p class="empty-msg">Your bag is currently empty.</p>';
         } else {
             cart.forEach((item, index) => {
-                total += parseFloat(item.price);
+                total += parseFloat(item.price) * item.quantity;
 
-                const itemEl = document.createElement('div');
-                itemEl.classList.add('cart-item');
-                itemEl.innerHTML = `
-                    <img src="${item.img}" alt="${item.name}">
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <span class="cart-item-price">${item.price}EGP</span>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(itemEl);
+const itemEl = document.createElement('div');
+itemEl.classList.add('cart-item');
+
+itemEl.innerHTML = `
+    <img src="${item.img}" alt="${item.name}">
+    <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span>${item.price} EGP</span>
+
+        <div class="qty-controls">
+            <button onclick="changeQty(${index}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQty(${index}, 1)">+</button>
+        </div>
+    </div>
+`;
+
+cartItemsContainer.appendChild(itemEl);
             });
         }
 
@@ -127,11 +135,19 @@ if (new Date() <= discountEndDate && subtotal > 0) {
 
 cartTotalElement.textContent = finalTotal.toFixed(2) + " EGP";
 }
-    function addToCart(name, price, img) {
-        cart.push({ name, price, img });
-        updateCartUI();
-        openCart(); // Auto open cart when adding
+  function addToCart(name, price, img) {
+
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, img, quantity: 1 });
     }
+
+    updateCartUI();
+    openCart();
+}
 
     // Event Listeners
     if (openCartBtn) openCartBtn.addEventListener('click', openCart);
@@ -212,6 +228,17 @@ document.querySelectorAll('.price').forEach(priceEl => {
 });
     });
 }
+function changeQty(index, change) {
+
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    updateCartUI();
+}
+
 
 
 
